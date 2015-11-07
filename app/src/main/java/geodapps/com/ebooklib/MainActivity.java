@@ -12,7 +12,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
 {
 
-    FloatingActionButton repoConnectButton; //Botón para conectar con el repositorio de libros
+   // FloatingActionButton disconnect; //Botón para desconectar con el repositorio de libros
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        repoConnectButton = (FloatingActionButton) findViewById(R.id.fab);
-        repoConnectButton.setOnClickListener(new View.OnClickListener() {
+       /* disconnect = (FloatingActionButton) findViewById(R.id.disconnect);
+        disconnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
     @Override
@@ -59,4 +59,8 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+   /* @Override
+    public void onBackPressed() {
+
+    }*/
 }

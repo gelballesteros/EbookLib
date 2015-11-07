@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">EbookLib</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="db_login_error">No ha sido posible la autenticación con Dropbox</string>
+    <string name="db_need_to_log">Para acceder a tus ebooks, conecta con Dropbox pulsando el botón de la esquina inferior derecha</string>
+
+
 </resources>

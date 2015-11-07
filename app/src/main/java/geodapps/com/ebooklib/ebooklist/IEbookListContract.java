@@ -1,5 +1,6 @@
 package geodapps.com.ebooklib.ebooklist;
 
+import java.io.InputStream;
 import java.util.List;
 
 import geodapps.com.ebooklib.data.Ebook;
@@ -30,5 +31,6 @@ public interface IEbookListContract
         void atachView(View view);
         void detachView();
         void askForBooks();
+        InputStream getImageInputStream();
     }
 }

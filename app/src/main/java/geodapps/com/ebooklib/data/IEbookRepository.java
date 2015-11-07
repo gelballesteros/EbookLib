@@ -1,5 +1,7 @@
 package geodapps.com.ebooklib.data;
 
+import android.content.Context;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -8,6 +10,11 @@ import java.util.ArrayList;
  */
 public interface IEbookRepository
 {
+    interface LoginRepositoryCallBack
+    {
+        void onLogIn(boolean result, String msg);
+    }
+
     interface EbookRepositoryCallBack
     {
         void onBooksLoaded();
@@ -16,4 +23,7 @@ public interface IEbookRepository
 
     void adquireEbooks(EbookRepositoryCallBack callBack);
     ArrayList<Ebook> getBooks();
+    boolean needToLog();
+    void logIn(LoginRepositoryCallBack callBack);
+    void onCreate(Context cnt);
 }
