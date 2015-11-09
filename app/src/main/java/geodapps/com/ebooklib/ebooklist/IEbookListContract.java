@@ -7,30 +7,33 @@ import geodapps.com.ebooklib.data.Ebook;
 import geodapps.com.ebooklib.data.IEbookRepository;
 
 /**
- * Interfaces de Vista y Presentador de la lista de ebooks
+ * Interfaces de Activity, Fragment y Presentador de la lista de ebooks
+ * La Activity realiza la comunicación entre fragments
  */
 public interface IEbookListContract
 {
-    interface View
+
+    interface Activity
     {
-        void createListAdapter(List<Ebook> books);
+        void showDetail(int indx);
+    }
+
+    interface Fragment
+    {
+        EbookListAdapter createListAdapter(List<Ebook> books);
         void createList(EbookListAdapter adapter);
         void showProgressBar();
         void hideProgressBar();
         void showMessage(String msg);
-        void showEmptyListMsg(String msg);
-        void showList();
-        void hideList();
-        void showAskForWSConnection();
-        void hideAskForWSConnection();
-        void showDetail(Ebook book);
+        void updateList();
     }
 
     interface Presenter
     {
-        void atachView(View view);
+        void atachView(Fragment fragment);
         void detachView();
         void askForBooks();
-        InputStream getImageInputStream();
+        void ordenaLista(int modo);
+
     }
 }

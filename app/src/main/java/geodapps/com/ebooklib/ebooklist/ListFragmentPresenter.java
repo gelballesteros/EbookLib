@@ -1,8 +1,6 @@
 package geodapps.com.ebooklib.ebooklist;
 
-
-import java.io.InputStream;
-
+import geodapps.com.ebooklib.EBLApplication;
 import geodapps.com.ebooklib.data.IEbookRepository;
 
 /**
@@ -10,18 +8,21 @@ import geodapps.com.ebooklib.data.IEbookRepository;
  */
 public class ListFragmentPresenter implements IEbookListContract.Presenter,IEbookRepository.EbookRepositoryCallBack
 {
-    IEbookListContract.View mView;
+    IEbookListContract.Fragment mView;
     IEbookRepository ebookRepository;
 
-    ListFragmentPresenter (IEbookRepository repo)
+    ListFragmentPresenter ()
     {
-        ebookRepository = repo;
+        ebookRepository = EBLApplication.repository;
     }
 
     @Override
-    public void atachView(IEbookListContract.View view)
+    public void atachView(IEbookListContract.Fragment view)
     {
         mView=view;
+        //si ya tiene los libros (en una recreación), los muestra
+        if (ebookRepository.getBooks()!=null)
+            mView.createList(mView.createListAdapter(ebookRepository.getBooks()));
     }
 
     @Override
@@ -36,18 +37,28 @@ public class ListFragmentPresenter implements IEbookListContract.Presenter,IEboo
      */
     public void askForBooks()
     {
+        mView.showProgressBar();
         ebookRepository.adquireEbooks(this);
     }
 
+
     @Override
-    public InputStream getImageInputStream() {
-        return null;
+    public void ordenaLista(int modo)
+    {
+        ebookRepository.ordenaLista(modo);
+        if (mView!=null)
+            mView.updateList();
+
     }
 
     @Override
     public void onBooksLoaded()
     {
-
+        if (mView!=null)
+        {
+            mView.createList(mView.createListAdapter(ebookRepository.getBooks()));
+            mView.hideProgressBar();
+        }
     }
 
     @Override
@@ -56,6 +67,17 @@ public class ListFragmentPresenter implements IEbookListContract.Presenter,IEboo
      */
     public void onErrorLoading(String msg)
     {
+        if (mView!=null)
+        {
+            mView.showMessage(msg);
+            mView.hideProgressBar();
+        }
+    }
+
+    @Override
+    public void onBookMetadata(int indx) {
 
     }
+
+
 }

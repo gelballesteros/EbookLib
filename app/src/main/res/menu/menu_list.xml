@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item android:id="@+id/action_change_recycler" android:title="@string/action_change_recycler"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_order_by_date" android:title="@string/action_order_by_date"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_order_by_title" android:title="@string/action_order_by_title"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>
