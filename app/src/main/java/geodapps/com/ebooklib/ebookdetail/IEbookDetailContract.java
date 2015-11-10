@@ -17,7 +17,7 @@ public interface IEbookDetailContract
 
     interface Presenter
     {
-        void atachView(View view);
+        void attachView(View view);
         void detachView();
         void showDetail(int indx);
     }

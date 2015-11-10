@@ -12,6 +12,7 @@ public class EbookDetailPresenter implements Presenter, IEbookRepository.EbookRe
 {
     IEbookDetailContract.View mView;
     IEbookRepository ebookRepository;
+    public int ebookShowing = -1;//índice al libro que se muestra
 
     EbookDetailPresenter ()
     {
@@ -20,9 +21,13 @@ public class EbookDetailPresenter implements Presenter, IEbookRepository.EbookRe
 
 
     @Override
-    public void atachView(IEbookDetailContract.View view)
+    public void attachView(IEbookDetailContract.View view)
     {
         mView = view;
+        //si ya tiene los libros (en una recreación), los muestra
+        if (ebookShowing>=0)
+            onBookMetadata(ebookShowing);
+
     }
 
     @Override
@@ -62,6 +67,7 @@ public class EbookDetailPresenter implements Presenter, IEbookRepository.EbookRe
             mView.setImage(ebookRepository.getBooks().get(indx).frontPage);
             mView.setTitle(ebookRepository.getBooks().get(indx).title);
             mView.hideProgressBar();
+            ebookShowing=indx;
         }
     }
 }

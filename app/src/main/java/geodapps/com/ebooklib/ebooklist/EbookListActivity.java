@@ -14,13 +14,12 @@ import geodapps.com.ebooklib.ebookdetail.EbookDetailFragment;
 public class EbookListActivity extends AppCompatActivity implements IEbookListContract.Activity
 {
     private EbookListFragment listFrag;
-   // private static final String TAG_TASK_FRAGMENT = "task_fragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -54,7 +53,7 @@ public class EbookListActivity extends AppCompatActivity implements IEbookListCo
             startActivity(intent);
         } else
         {
-            // detailFrag no está en la layout, así que le dice a su presenter que lo actualice
+            // detailFrag ya está en la layout, así que le dice a su presenter que lo actualice
             detailFrag.getView().setVisibility(View.VISIBLE);
             detailFrag.presenter.showDetail(indx);
 

@@ -35,7 +35,7 @@ public class EbookListFragment extends Fragment implements IEbookListContract.Fr
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = new ListFragmentPresenter();
-        presenter.atachView(this);
+        presenter.attachView(this);
         presenter.askForBooks();
         setRetainInstance(true);
 
@@ -54,7 +54,7 @@ public class EbookListFragment extends Fragment implements IEbookListContract.Fr
         //Muesta menú
         setHasOptionsMenu(true);
         //Indica al presenter que el fragment está presente
-        presenter.atachView(this);
+        presenter.attachView(this);
         //Guarda referencia a la Activity
         try {
             this.activity = (IEbookListContract.Activity) getActivity();
@@ -77,6 +77,8 @@ public class EbookListFragment extends Fragment implements IEbookListContract.Fr
     @Override
     public EbookListAdapter createListAdapter(List<Ebook> books)
     {
+        if (recView==null)
+            return null;
         if (books.size()==0)
         {
             recView.setVisibility(View.GONE);

@@ -16,7 +16,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/db_need_to_log"
         android:id="@+id/txt_login"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="115dp" />
+        android:layout_centerVertical="true"
+        />
 </RelativeLayout>

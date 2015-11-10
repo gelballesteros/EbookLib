@@ -30,7 +30,7 @@ public interface IEbookListContract
 
     interface Presenter
     {
-        void atachView(Fragment fragment);
+        void attachView(Fragment fragment);
         void detachView();
         void askForBooks();
         void ordenaLista(int modo);

@@ -17,7 +17,7 @@ public class ListFragmentPresenter implements IEbookListContract.Presenter,IEboo
     }
 
     @Override
-    public void atachView(IEbookListContract.Fragment view)
+    public void attachView(IEbookListContract.Fragment view)
     {
         mView=view;
         //si ya tiene los libros (en una recreación), los muestra

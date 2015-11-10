@@ -26,6 +26,7 @@ public class EbookDetailActivity extends AppCompatActivity {
 
         int indx = getIntent().getExtras().getInt(EbookDetailFragment.ARG_EBOOK);
         detailFrag.presenter.showDetail(indx);
+
 }
 
 }
